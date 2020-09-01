@@ -631,5 +631,11 @@ def SigProfilerMatrixGeneratorFunc (project, genome, vcfFiles, exome=False, bed_
 	# Prints a summary for the given run (total samples, skipped mutations, etc.)
 	if not chrom_based:
 		print("Matrices generated for " + str(sample_count_high) + " samples with " + str(skipped_muts) + " errors. Total of " + str(analyzed_muts[0]) + " SNVs, " + str(analyzed_muts[1]) + " DINUCs, and " + str(analyzed_muts[2]) + " INDELs were successfully analyzed.")
+		Output_String = "Total of " + str(analyzed_muts[0]) + " SNVs, " + str(analyzed_muts[1]) + " DINUCs, and " + str(analyzed_muts[2]) + " INDELs were successfully analyzed."
+		Output_Statistics_Path = "%s/Statistics.txt" % (vcfFiles)
+		Output_Statistics_File = open(Output_Statistics_Path,'w')
+		Output_Statistics_File.write(Output_String)
+		Output_Statistics_File.close()
+
 	return(matrices)
 
